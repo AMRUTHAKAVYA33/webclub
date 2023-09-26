@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Triangle Area Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .input-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Triangle Area Calculator</h1>
+  
+  <div class="input-container">
+    <label for="side1">Side 1:</label>
+    <input type="number" id="side1">
+    
+    <label for="side2">Side 2:</label>
+    <input type="number" id="side2">
+    
+    <label for="side3">Side 3:</label>
+    <input type="number" id="side3">
+    
+    <button onclick="calculateArea()">Calculate</button>
+  </div>
+  
+  <div class="result" id="result"></div>
+  
+  <script>
+    function calculateArea() {
+      var side1 = parseFloat(document.getElementById("side1").value);
+      var side2 = parseFloat(document.getElementById("side2").value);
+      var side3 = parseFloat(document.getElementById("side3").value);
+      
+      var s = (side1 + side2 + side3) / 2;
+      var area = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+      
+      document.getElementById("result").innerHTML = "The area of the triangle is: " + area.toFixed(2);
+    }
+  </script>
+</body>
+</html>
+<hr>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leap Year Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .input-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Leap Year Checker</h1>
+  
+  <div class="input-container">
+    <label for="year">Enter a year:</label>
+    <input type="number" id="year">
+    
+    <button onclick="checkLeapYear()">Check</button>
+  </div>
+  
+  <div class="result" id="result"></div>
+  
+  <script>
+    function checkLeapYear() {
+      var year = parseInt(document.getElementById("year").value);
+      
+      if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+        document.getElementById("result").innerHTML = year + " is a leap year!";
+      } else {
+        document.getElementById("result").innerHTML = year + " is not a leap year.";
+      }
+    }
+  </script>
+</body>
+</html>
+<hr>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>January 1st Sunday Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>January 1st Sunday Checker</h1>
+  
+  <div class="result" id="result"></div>
+  
+  <script>
+    function checkJanuary1stSunday() {
+      for (var year = 2014; year <= 2050; year++) {
+        var date = new Date(year, 0, 1);
+        
+        if (date.getDay() === 0) {
+          document.getElementById("result").innerHTML = "January 1st will be a Sunday in the year " + year + "!";
+          break;
+        }
+      }
+      
+      if (year > 2050) {
+        document.getElementById("result").innerHTML = "January 1st will not be a Sunday between 2014 and 2050.";
+      }
+    }
+    
+    checkJanuary1stSunday();
+  </script>
+</body>
+</html>
+```<hr>
+``html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Days Left Before Christmas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Days Left Before Christmas</h1>
+  
+  <div class="result" id="result"></div>
+  
+  <script>
+    function calculateDaysUntilChristmas() {
+      var today = new Date();
+      var christmas = new Date(today.getFullYear(), 11, 25);
+      
+      if (today.getMonth() === 11 && today.getDate() > 25) {
+        christmas.setFullYear(christmas.getFullYear() + 1);
+      }
+      
+      var timeDifference = christmas.getTime() - today.getTime();
+      var daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+      
+      document.getElementById("result").innerHTML = "There are " + daysLeft + " days left until Christmas!";
+    }
+    
+    calculateDaysUntilChristmas();
+  </script>
+</body>
+</html>
+<hr>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Compare Objects</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Compare Objects</h1>
+  
+  <div class="result" id="result"></div>
+  
+  <script>
+    function compareObjects(obj1, obj2) {
+      // Get the keys of the first object
+      var keys = Object.keys(obj1);
+      
+      // Loop through the keys
+      for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        
+        // Check if the property values are equal
+        if (obj1[key] !== obj2[key]) {
+          return false;
+        }
+      }
+      
+      return true;
+    }
+    
+    // Example usage
+    var obj1 = { name: "John", age: 30 };
+    var obj2 = { name: "John", age: 30 };
+    
+    var result = compareObjects(obj1, obj2);
+    
+    document.getElementById("result").innerHTML = "The objects are " + (result ? "equivalent" : "not equivalent") + "!";
+  </script>
+</body>
+</html>
+<hr>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alphabetical Order</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Alphabetical Order</h1>
+  
+  <div class="result" id="result"></div>
+  
+  <script>
+    function sortStringAlphabetically(str) {
+      // Convert the string to an array of characters
+      var chars = str.split("");
+      
+      // Sort the array in alphabetical order
+      var sortedChars = chars.sort();
+      
+      // Join the sorted characters back into a string
+      var sortedStr = sortedChars.join("");
+      
+      return sortedStr;
+    }
+    
+    // Example usage
+    var inputString = "webmaster";
+    var sortedString = sortStringAlphabetically(inputString);
+    
+    document.getElementById("result").innerHTML = "The sorted string is: " + sortedString;
+  </script>
+</body>
+</html>
+<hr>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Uppercase First Letter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Uppercase First Letter</h1>
+  
+  <div class="result" id="result"></div>
+  
+  <script>
+    function capitalizeFirstLetter(str) {
+      // Split the string into an array of words
+      var words = str.split(" ");
+      
+      // Capitalize the first letter of each word
+      var capitalizedWords = words.map(function(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      });
+      
+      // Join the capitalized words back into a string
+      var capitalizedStr = capitalizedWords.join(" ");
+      
+      return capitalizedStr;
+    }
+    
+    // Example usage
+    var inputString = "the quick brown fox";
+    var capitalizedString = capitalizeFirstLetter(inputString);
+    
+    document.getElementById("result").innerHTML = "The capitalized string is: " + capitalizedString;
+  </script>
+</body>
+</html>
+<hr>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Second Lowest and Second Greatest</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Second Lowest and Second Greatest</h1>
+  
+  <div class="result" id="result"></div>
+  
+  <script>
+    function findSecondLowestAndGreatest(numbers) {
+      // Sort the array in ascending order
+      numbers.sort(function(a, b) {
+        return a - b;
+      });
+      
+      // Get the second lowest and second greatest numbers
+      var secondLowest = numbers[1];
+      var secondGreatest = numbers[numbers.length - 2];
+      
+      return [secondLowest, secondGreatest];
+    }
+    
+    // Example usage
+    var inputArray = [1, 2, 3, 4, 5];
+    var result = findSecondLowestAndGreatest(inputArray);
+    
+    document.getElementById("result").innerHTML = "The second lowest and second greatest numbers are: " + result[0] + ", " + result[1];
+  </script>
+</body>
+</html>
