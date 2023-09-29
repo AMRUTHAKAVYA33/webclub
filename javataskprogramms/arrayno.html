@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Second Lowest and Second Greatest</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Second Lowest and Second Greatest</h1>
+  
+  <div class="result" id="result"></div>
+  
+  <script>
+    function findSecondLowestAndGreatest(numbers) {
+      // Sort the array in ascending order
+      numbers.sort(function(a, b) {
+        return a - b;
+      });
+      
+      // Get the second lowest and second greatest numbers
+      var secondLowest = numbers[1];
+      var secondGreatest = numbers[numbers.length - 2];
+      
+      return [secondLowest, secondGreatest];
+    }
+    
+    // Example usage
+    var inputArray = [1, 2, 3, 4, 5];
+    var result = findSecondLowestAndGreatest(inputArray);
+    
+    document.getElementById("result").innerHTML = "The second lowest and second greatest numbers are: " + result[0] + ", " + result[1];
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>January 1st Sunday Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>January 1st Sunday Checker</h1>
+  
+  <div class="result" id="result"></div>
+  
+  <script>
+    function checkJanuary1stSunday() {
+      for (var year = 2014; year <= 2050; year++) {
+        var date = new Date(year, 0, 1);
+        
+        if (date.getDay() === 0) {
+          document.getElementById("result").innerHTML = "January 1st will be a Sunday in the year " + year + "!";
+          break;
+        }
+      }
+      
+      if (year > 2050) {
+        document.getElementById("result").innerHTML = "January 1st will not be a Sunday between 2014 and 2050.";
+      }
+    }
+    
+    checkJanuary1stSunday();
+  </script>
+</body>
+</html>

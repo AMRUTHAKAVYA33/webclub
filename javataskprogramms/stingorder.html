@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alphabetical Order</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Alphabetical Order</h1>
+  
+  <div class="result" id="result"></div>
+  
+  <script>
+    function sortStringAlphabetically(str) {
+      // Convert the string to an array of characters
+      var chars = str.split("");
+      
+      // Sort the array in alphabetical order
+      var sortedChars = chars.sort();
+      
+      // Join the sorted characters back into a string
+      var sortedStr = sortedChars.join("");
+      
+      return sortedStr;
+    }
+    
+    // Example usage
+    var inputString = "Amruthakavya";
+    var sortedString = sortStringAlphabetically(inputString);
+    
+    document.getElementById("result").innerHTML = "The sorted string is: " + sortedString;
+  </script>
+</body>
+</html>
